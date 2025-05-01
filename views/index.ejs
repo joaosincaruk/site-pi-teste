@@ -1,0 +1,68 @@
+<%- include ('partials/navbarIndex.ejs')%> 
+<%- include ('partials/header.ejs') %>
+
+<div class="menu">
+    <div class="menu-top">
+        <img src="/images/logo-nav.png" alt="" style="width: 60px; height: 60px; margin-bottom: 2.3px;" >  <img src="/images/greenrise2.png" alt="">
+    </div>
+  <div class="imagem">
+    
+    <img src="/images/user.png" alt="" />
+    </div>
+    <div class="text">
+        <p>Usuário</p>
+        <p class="p2">Admin</p>
+    </div>
+    <div class="d-grid gap-2" id="container-buttons">
+        <button class="btn btn-primary" type="button" id="btns"><i class="bi bi-border-all"></i>Painel</button>
+        <button class="btn btn-primary" type="button" id="btns"><i class="bi bi-bar-chart"></i>Análises</button>
+        <button class="btn btn-primary" type="button" id="btns"><i class="bi bi-flag"></i>Relátorios</button>
+        <button class="btn btn-primary" type="button" id="btns"><i class="bi bi-gear"></i></i>Configurar</button>
+   
+      </div>
+      
+</div>
+
+
+<div class="cards">
+    <div class="card" style="width: 18rem;">
+        <img src="images/hortaliças.png" class="card-img-top" alt="hortaliças">
+        <div class="card-body">
+            <h5 class="card-title">Hortaliças</h5>
+            <p class="card-text">Clique no botão para adicionar a sua hortaliça.</p>
+            <a href="/registerHortalica" class="btn btn-primary" id="btn-secundary">Adicionar Hortaliças</a>
+        </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+        <img src="images/fertilizante.png" class="card-img-top" alt="nivelagua">
+        <div class="card-body">
+            <h5 class="card-title">Gestão de Hortaliças</h5>
+            <p class="card-text">Clique no botão para gerenciar suas hortaliças</p>
+            <a href="gestaoHortalicas" class="btn btn-primary" id="btn-secundary">Abrir Gestão</a>
+        </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+        <img src="images/robotAI.png" class="card-img-top" alt="nivelagua">
+        <div class="card-body">
+            <h5 class="card-title">Automatização AI</h5>
+            <p class="card-text">Clique no botão para automatizar sua plantação</p>
+            <a href="aiAutomation" class="btn btn-primary" id="btn-secundary">Automatizar</a>
+        </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+        <img src="images/dashboard.png" class="card-img-top" alt="nivelagua">
+        <div class="card-body">
+            <h5 class="card-title">Dashboard</h5>
+            <p class="card-text">Clique para visualizar seu dashboard</p>
+            <a href="dashboard" class="btn btn-primary" id="btn-secundary">Visualizar</a>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+
+
+<%- include ('partials/footer') %>

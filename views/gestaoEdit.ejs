@@ -1,0 +1,56 @@
+<%- include ('partials/navbar.ejs') %> 
+<%- include ('partials/header.ejs') %>
+
+
+
+<div class="containerGest">
+  <div class="card">
+  <div class="card-header">
+   <h1>Alterar Dados</h1>
+  
+  <hr>
+
+<form method="POST" action="/gestaoHortalicas/edit/<%= hortalica.id_hortalica %>">
+
+  <label>Nome Hortaliça</label>
+  <input type="text" name="nome_hortalica" id="hortalica" value="<%= hortalica.nome_hortalica %>" class="form-control" required>
+
+  <label>Tipo Hortaliça</label>
+  <select class="form-select" name="tipo_hortalica" required>
+    <option value="<%= hortalica.tipo_hortalica %>" selected><%= hortalica.tipo_hortalica %></option>
+    <option value="Alface">Alface</option>
+    <option value="Batata">Batata</option>
+    <option value="Tomate">Tomate</option>
+    <option value="Cebola">Cebola</option>
+    <option value="Cenoura">Cenoura</option>
+    <option value="Abobora">Abóbora</option>
+    <option value="Repolho">Repolho</option>
+    <option value="Chuchu">Chuchu</option>
+    <option value="Batata-doce">Batata-doce</option>
+  </select>
+
+  <label>Fertilizante</label>
+  <input class="form-control" type="text" name="fertilizante" value="<%= fertilizante ? fertilizante.fertilizante : '' %>" placeholder="Digite a concentração em g/L" required>
+
+  <label>Nível da Água</label>
+  <input class="form-control" name="nivel_agua" type="number" value="<%= nivel ? nivel.nivel_agua : '' %>" placeholder="Digite o nível em L/h">
+
+  <button type="submit" class="btn btn-primary" style="margin-left: 10px; margin-top: 10px;">Salvar</button>
+</form>
+
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<%- include('partials/footer.ejs') %>

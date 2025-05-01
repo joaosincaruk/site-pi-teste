@@ -1,0 +1,153 @@
+<%- include ('partials/navbar.ejs') %> <%- include ('partials/header.ejs') %>
+
+
+<div class="containerGest">
+  <div class="header">
+      <div class="title"></div>
+      <select>
+          <option>Fazenda 1</option>
+          <option>Fazenda 2</option>
+          <option>Fazenda 3</option>
+          <option>Fazenda 4</option>
+      </select>
+  </div>
+
+  <div class="stats">
+      <div class="stat-box">
+          <div class="number" id="users">567kWh</div>
+          <div class="label">Consumo Energia</div>
+          <div class="Imagem1"><img src="/images/kWh.png" alt="" class="img"></div>
+      </div>
+      <div class="stat-box">
+          <div class="number" id="fund">4</div>
+          <div class="label">Plantações</div>
+          <div class="Imagem1"><img src="/images/planta.png" alt="" class="img"></div>
+      </div>
+      <div class="stat-box">
+          <div class="number" id="balance">678</div>
+          <div class="label">Rendimento</div>
+          <div class="Imagem1"><img src="/images/grafico.png" alt="" class="img"></div>
+      </div>
+      <div class="stat-box">
+          <div class="number" id="transfers">50</div>
+          <div class="label">Perdas</div>
+          <div class="Imagem1"><img src="/images/perdas.png" alt="" class="img"></div>
+      </div>
+  </div>
+
+  <div class="charts">
+      <!-- Graph 1: Line Chart -->
+      <div class="chart-container">
+          <canvas id="lineChart"></canvas>
+      </div>
+
+      <!-- Graph 2: Bar Chart -->
+      <div class="chart-container">
+          <canvas id="barChart"></canvas>
+      </div>
+  </div>
+</div>
+
+<script>
+  // Line chart data
+  const lineData = {
+      labels: ['1991', '1992', '1993', '1994', '1995', '1996', '1997', '1998', '1999'],
+      datasets: [{
+          label: 'Growth',
+          data: [40, 50, 60, 70, 90, 110, 130, 160, 200],
+          fill: false,
+          borderColor: '#3498db',
+          tension: 0.1
+      }]
+  };
+
+  // Line chart options
+  const lineOptions = {
+      responsive: true,
+      plugins: {
+          legend: {
+              position: 'top',
+          },
+          tooltip: {
+              callbacks: {
+                  label: function (tooltipItem) {
+                      return tooltipItem.raw + ' units';
+                  }
+              }
+          }
+      },
+      scales: {
+          y: {
+              beginAtZero: true
+          }
+      }
+  };
+
+  // Bar chart data
+  const barData = {
+      labels: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+      datasets: [
+          {
+              label: 'Crescimento Hortaliça (cm)',
+              data: [50, 60, 70, 80, 90, 100, 110, 120, 130],
+              backgroundColor: '#2ecc71',
+              borderColor: '#27ae60',
+              borderWidth: 1
+          },
+          {
+              label: 'Concentração Fertilizante g/L',
+              data: [40, 50, 60, 70, 80, 90, 100, 110, 120],
+              backgroundColor: '#f39c12',
+              borderColor: '#f1c40f',
+              borderWidth: 1
+          },
+          {
+              label: 'Fluxo de Água L/h',
+              data: [30, 40, 50, 60, 70, 80, 90, 100, 110],
+              backgroundColor: '#9b59b6',
+              borderColor: '#8e44ad',
+              borderWidth: 1
+          }
+      ]
+  };
+
+  // Bar chart options
+  const barOptions = {
+      responsive: true,
+      plugins: {
+          legend: {
+              position: 'top',
+          },
+          tooltip: {
+              callbacks: {
+                  label: function (tooltipItem) {
+                      return '$' + tooltipItem.raw + 'K';
+                  }
+              }
+          }
+      },
+      scales: {
+          y: {
+              beginAtZero: true
+          }
+      }
+  };
+
+  // Initialize charts
+  const lineCtx = document.getElementById('lineChart').getContext('2d');
+  const barCtx = document.getElementById('barChart').getContext('2d');
+
+  new Chart(lineCtx, {
+      type: 'line',
+      data: lineData,
+      options: lineOptions
+  });
+
+  new Chart(barCtx, {
+      type: 'bar',
+      data: barData,
+      options: barOptions
+  });
+</script>
+
+<%- include ('partials/footer.ejs') %>

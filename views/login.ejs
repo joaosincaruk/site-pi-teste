@@ -1,0 +1,45 @@
+<%- include ('partials/navbar.ejs') %>
+<%- include ('partials/header.ejs') %>
+
+<div class="container">
+    <div class="form-image">
+        <img src="/images/login-tela.svg" alt="">
+    </div>
+    <div class="form">
+        <form action="#">
+            <div class="form-header">
+                <div class="title">
+                    <h1 style="color: black;">Login</h1>
+                </div>
+            </div>
+
+                <div class="input-box">
+                    <label for="email">E-mail</label>
+                    <input id="email" type="email" name="email" placeholder="Digite seu e-mail" required>
+                </div>
+
+                <div class="input-box">
+                    <label for="password">Senha</label>
+                    <input id="password" type="password" name="password" placeholder="Digite sua senha" required>
+                </div>
+
+                <div class="continue-button">
+                    <button><a href="#">Entrar</a> </button>
+                </div>
+
+                <div class="Opcoes">
+                    <p class="parForm">Não possui conta? <a href="/register" class="linkForm">clique aqui</a></p>
+                    <p class="parForm">Esqueceu a senha? <a href="/register" class="linkForm">clique aqui</a></p>
+                </div>
+            </div>
+            
+     </form>
+    </div>
+
+
+
+
+
+
+
+<%- include ('partials/footer.ejs') %>

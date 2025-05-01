@@ -1,0 +1,58 @@
+<%- include('partials/navbar.ejs') %>
+<%- include('partials/header.ejs') %>
+
+<div class="containerGest">
+  <div class="card">
+    <div class="card-header">
+      <h1>Gestão de Hortaliças</h1>
+    </div>
+    <div class="card-body">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Tipo</th>
+            <th>Fertilizante (g/L)</th>
+            <th>Nivel d'Água (L/h)</th>
+            <th>Editar</th>
+            <th>Excluir</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% gestaoHortalicas.forEach(hortalica => { %>
+            <tr>
+              <td><%= hortalica.nome_hortalica %></td>
+              <td><%= hortalica.tipo_hortalica %></td>
+              <td>
+                <% if (hortalica.fertilizantes && hortalica.fertilizantes.length > 0) { %>
+                  <%= hortalica.fertilizantes[0].fertilizante %> g/L
+                <% } else { %>
+                  Sem fertilizante
+                <% } %>
+              </td>
+              <td>
+                <% if (hortalica.niveis && hortalica.niveis.length > 0) { %>
+                  <%= hortalica.niveis[0].nivel_agua %> L/h
+                <% } else { %>
+                  Sem Nível
+                <% } %>
+              </td>
+              
+                          
+              <td>
+                <a href="/gestaoHortalicas/edit/<%= hortalica.id_hortalica %>"><button class="btn btn-warning">Editar</button></a>
+              </td>
+              <td>
+                <a onclick="return confirm('Deseja mesmo excluir a Hortaliça?')" href="/gestaoHortalicas/delete/<%= hortalica.id_hortalica %>">
+                  <button class="btn btn-danger">Excluir</button>
+                </a>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer.ejs') %>

@@ -1,0 +1,67 @@
+<%- include ('partials/navbar.ejs') %>
+<%- include ('partials/header.ejs') %>
+
+<div class="wrapper-containers">
+  <!-- Container HORTALIÇA -->
+  <div class="container2">
+    <div class="circle-hort"></div>
+    <h1>Hortaliça</h1>
+    <form action="/hortalicas" method="POST" class="formHortalicas">
+      <input class="form-control" type="text" name="nome_hortalica" placeholder="Digite o nome da hortaliça" required>
+      <select class="form-select" name="tipo_hortalica" style="margin-top: 15px;" required>
+        <option value="" disabled selected>Selecione</option>
+        <option value="Alface">Alface</option>
+        <option value="Batata">Batata</option>
+        <option value="Tomate">Tomate</option>
+        <option value="Cebola">Cebola</option>
+        <option value="Cenoura">Cenoura</option>
+        <option value="Abobora">Abóbora</option>
+        <option value="Repolho">Repolho</option>
+        <option value="Chuchu">Chuchu</option>
+        <option value="Batata-doce">Batata-doce</option>
+      </select>
+      <button type="submit" class="btn btn-primary" id="btn-secundary" style="margin-left: 10px;">Salvar</button>
+    </form>
+  </div>
+
+  <!-- Formulário para Fertilizante dentro da mesma página -->
+
+  <div class="container2">
+    <div class="circle-fert"></div>
+    <h1>Fertilizante</h1>
+    <form action="/fertilizante" method="POST" class="formHortalicas">
+    
+      <input class="form-control" type="text" name="fertilizante" placeholder="Digite a concentração em g/L" required>
+    
+      <select class="form-select" name="id_hortalica" required style="margin-top: 15px;">
+        <option value="" disabled selected>Selecione a hortaliça</option>
+        <% gestaoHortalicas.forEach(h => { %>
+          <option value="<%= h.id_hortalica %>"><%= h.tipo_hortalica %></option>
+        <% }) %>
+      </select>
+    
+      <button type="submit" class="btn btn-primary" id="btn-secundary" style="margin-top: 20px;">Salvar Fertilizante</button>
+    </form>
+  </div>
+
+
+
+  <!-- Container NÍVEL DA ÁGUA -->
+  <div class="container2">
+    <div class="circle-water"></div>
+    <h1>Nível da Água</h1>
+   
+      <form action="/nivel" method="POST" class="formHortalicas">
+        <input class="form-control" name="nivel_agua" type="number" placeholder="Digite o nível em L/h">
+        <select class="form-select" name="id_hortalica" required style="margin-top: 15px;">
+          <option value="" disabled selected>Selecione a hortaliça</option>
+          <% gestaoHortalicas.forEach(h => { %>
+            <option value="<%= h.id_hortalica %>"><%= h.tipo_hortalica %></option>
+          <% }) %>
+        </select>
+        <button type="submit" class="btn btn-primary" id="btn-secundary" style="margin-left: 10px;">Salvar</button>
+      </form>
+  </div>
+</div>
+
+<%- include ('partials/footer.ejs') %>

@@ -1,0 +1,28 @@
+<%- include ('partials/navbar.ejs') %> 
+<%- include ('partials/header.ejs') %>
+
+
+<div class="container2">
+    <div class="circle-ai"></div>
+    <h1>Automatização</h1>
+
+    <!--Obs trocar hortalisas pelas informações do banco de dados-->
+    
+    <form action="/hortalicas" method="POST" class="formHortalicas">
+      <select class="form-select" name="tipo_hortalica" required>
+        <option value="" disabled selected>Selecione</option>
+        <option value="Alface">Manual</option>
+        <option value="Batata">Nível de água + Fertilização</option>
+        <option value="Tomate">Nível de água</option>
+        <option value="Cebola">Fertilizante</option>
+      </select>
+    
+      <button type="submit" class="btn btn-primary" id="btn-secundary" style="margin-left: 10px;">Salvar</button>
+    </form>
+    
+    
+</div>
+
+
+
+<%- include ('partials/footer.ejs') %>
